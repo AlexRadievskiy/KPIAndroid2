@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -17,15 +18,23 @@ public class InputFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_input, container, false);
         Button okButton = view.findViewById(R.id.okButton);
-        okButton.setOnClickListener(v -> showResultFragment());
+        EditText phoneTypeEditText = view.findViewById(R.id.phoneTypeEditText);
+
+        okButton.setOnClickListener(v -> {
+            String phoneType = phoneTypeEditText.getText().toString().trim();
+            if (!phoneType.isEmpty()) {
+                showResultFragment(phoneType);
+            } else {
+                Toast.makeText(getActivity(), "Please enter a phone type", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
     }
 
-    private void showResultFragment() {
-        EditText phoneTypeEditText = getView().findViewById(R.id.phoneTypeEditText);
+    private void showResultFragment(String phoneType) {
         RadioGroup brandRadioGroup = getView().findViewById(R.id.brandRadioGroup);
         int selectedBrandId = brandRadioGroup.getCheckedRadioButtonId();
-        String phoneType = phoneTypeEditText.getText().toString();
         String brand = "";
         if (selectedBrandId == R.id.samsungRadioButton) {
             brand = "Samsung";
@@ -44,5 +53,4 @@ public class InputFragment extends Fragment {
                 .addToBackStack(null)
                 .commit();
     }
-
 }
