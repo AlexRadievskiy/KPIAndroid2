@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">KPIAndroid2</string>
+    <string name="app_name">KPI Android 2</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
