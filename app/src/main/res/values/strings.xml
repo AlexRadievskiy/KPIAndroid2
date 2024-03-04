@@ -2,4 +2,7 @@
     <string name="app_name">KPI Android 2</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="phone_type_hint">Enter Phone Type</string>
+    <string name="samsung">Samsung</string>
+    <string name="apple">Apple</string>
 </resources>

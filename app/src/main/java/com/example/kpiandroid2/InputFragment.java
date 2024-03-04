@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+
 import androidx.fragment.app.Fragment;
 
 public class InputFragment extends Fragment {
@@ -19,11 +22,27 @@ public class InputFragment extends Fragment {
     }
 
     private void showResultFragment() {
+        EditText phoneTypeEditText = getView().findViewById(R.id.phoneTypeEditText);
+        RadioGroup brandRadioGroup = getView().findViewById(R.id.brandRadioGroup);
+        int selectedBrandId = brandRadioGroup.getCheckedRadioButtonId();
+        String phoneType = phoneTypeEditText.getText().toString();
+        String brand = "";
+        if (selectedBrandId == R.id.samsungRadioButton) {
+            brand = "Samsung";
+        } else if (selectedBrandId == R.id.appleRadioButton) {
+            brand = "Apple";
+        }
+
         ResultFragment resultFragment = new ResultFragment();
-        // Pass data to ResultFragment if needed using Bundle
+        Bundle bundle = new Bundle();
+        bundle.putString("phoneType", phoneType);
+        bundle.putString("brand", brand);
+        resultFragment.setArguments(bundle);
+
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, resultFragment)
                 .addToBackStack(null)
                 .commit();
     }
+
 }

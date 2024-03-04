@@ -5,7 +5,12 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Display your result here -->
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"/>
+
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"

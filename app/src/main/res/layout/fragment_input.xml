@@ -5,7 +5,31 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Add your input fields here -->
+    <EditText
+        android:id="@+id/phoneTypeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phone_type_hint" />
+
+    <RadioGroup
+        android:id="@+id/brandRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/samsungRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/samsung" />
+
+        <RadioButton
+            android:id="@+id/appleRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/apple" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/okButton"
         android:layout_width="wrap_content"
